@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:wght@500&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    color: whitesmoke;
+    font-family: "Roboto mono";
+}
+.bee{
+    position: absolute;
+    z-index: 105;
+    display: none;
+    transition: all 1s ease-in-out;
+    user-select: none;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+}
+.nav{
+    position:absolute;
+    top: 0%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+    height: 100px;
+    background-color: #DE9151;
+}
+
+.navElement{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+    height: 50%;
+    background-color: #C36213;
+    transition: all 1s ease-in-out;
+    
+}
+
+.navElement:hover{
+    border-radius: 7px;
+}
+
+.navElement a{
+    color: #E2F2EF;
+}
+
+.page{
+    overflow: none;
+    width: 100%;
+    height: 100%;
+    background-color: #EFDF78;
+    background-image: linear-gradient(180deg,#de9637, pink);
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    padding-top: 7rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.title h1{
+    font-size: 60px;
+    color: #222222;
+}
+.title h2{
+    color: #212121;
+}
+
+#content{
+    width: 100%;
+}
+
+.paragraph{
+    position: relative;
+    padding: 1em;
+    transition: transform 1s ease-in-out;
+    user-select: none;
+    color: #222222;
+}
+.paragraph:hover{
+    transform: rotate(360deg);
+}
+
+#firstPara{
+    width: 50%;  
+    left: 10%;
+}
+
+#secondPara{
+    width: 60%;
+    left: 35%;
+}
+
+#thirdPara{
+    width: 50%;
+    left: 15%;  
+}

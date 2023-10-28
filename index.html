@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexStyles.css">
+    <title>
+        The Best Website of All Time !
+    </title>
+    <script>
+        function moveRandomPerm(e){
+            var element = e;
+            console.log(e);
+            const maxX = window.innerWidth - element.clientWidth;
+            const maxY = window.innerHeight - element.clientHeight;
+
+            const randomX = Math.floor((2 * Math.random()-1) * 0.3 * maxX );
+            const randomY = Math.floor((2 * Math.random()-1) * 0.3 * maxY);
+            element.style.transition = `all 0.4s ease-in-out`;
+            element.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+        function moveRandom(e){
+            var element = e.target;
+            console.log(element);
+            
+            const maxX = window.innerWidth - element.clientWidth;
+            const maxY = window.innerHeight - element.clientHeight;
+
+            const randomX = Math.floor((2 * Math.random()-1) * 0.3 * maxX );
+            const randomY = Math.floor((2 * Math.random()-1) * 0.3 * maxY);
+            element.style.transition = `all 0.4s ease-in-out`;
+            element.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            element.style.zIndex = -100;
+            setTimeout(() => {
+                element.style.transform = `translate(${-element.offsetLeft}px, ${-element.offsetTop}px)`;
+                element.style.zIndex = 105;
+            },500)
+        }
+        function addEventListeners(){
+            console.log("ADDING EVENT LISTENERS");
+            var collection = document.getElementsByClassName("navElement");
+            Array.from(collection).forEach((element) => {
+                element.addEventListener('mouseover', randomiseLocation);
+            })
+        }
+        function randomiseLocation(event){
+            const element = event.target;
+
+            const maxX = window.innerWidth - element.clientWidth;
+            const maxY = window.innerHeight - element.clientHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            element.style.position = `absolute`;
+            element.style.left = `0`;
+            element.style.top = `0`;
+            element.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            element.style.zIndex = `100`;
+            bee = element.getElementsByClassName('bee')[0];
+            bees = element.getElementsByClassName('bee');
+            bees = Array.from(bees);
+            bees.slice(1);
+            console.log(bees);
+            bees.forEach((element, index) => {
+                if(index != 0){
+                    element.style.display = 'block';
+                    moveRandomPerm(element);
+                }
+
+            })
+            bee.style.display = 'block';
+
+            element.removeEventListener('mouseover', randomiseLocation);
+        }
+        window.onload = function() {
+            addEventListeners();
+        }
+    </script>
+</head>
+<body>
+    <div class="page">
+        <div class="nav">
+            <div class="navElement" id="1">
+                <a href="/login">Login!</a>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+            </div>
+            <div class="navElement" id="2">
+                <a href="/minigame">minigame!</a>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+            </div>
+            <div class="navElement" id="3">
+                <a href="/about">About !</a>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+                <div class="bee" onclick="moveRandom(event)">
+                    <img src="BEE3.png" width="100px" height="100px"/>
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <h1>Welcome!</h1>
+            <h2>To the best website to exist!!!1!!!!</h2>
+        </div>
+        <div class="content">
+            <div class="paragraph" id="firstPara">
+                According to all known laws
+                of aviation,
+                
+                  
+                there is no way a bee
+                should be able to fly.
+                
+                  
+                Its wings are too small to get
+                its fat little body off the ground.
+                
+                  
+                The bee, of course, flies anyway
+                
+                  
+                because bees don't care
+                what humans think is impossible.
+            </div>
+            <div class="paragraph" id="secondPara">
+                Yellow, black. Yellow, black.
+                Yellow, black. Yellow, black.
+                
+                  
+                Ooh, black and yellow!
+                Let's shake it up a little.
+                
+                  
+                Barry! Breakfast is ready!
+                
+                  
+                Ooming!
+                
+                  
+                Hang on a second.
+                
+                  
+                Hello?
+                
+                  
+                - Barry?
+                - Adam?
+                
+                  
+                - Oan you believe this is happening?
+                - I can't. I'll pick you up.
+                Looking sharp.
+
+  
+                Use the stairs. Your father
+                paid good money for those.
+                
+                  
+                Sorry. I'm excited.
+                
+                  
+                Here's the graduate.
+                We're very proud of you, son.
+                
+                  
+                A perfect report card, all B's.
+                
+                  
+                Very proud.
+                
+                  
+                Ma! I got a thing going here.
+                
+                  
+                - You got lint on your fuzz.
+                - Ow! That's me!
+                
+                  
+                - Wave to us! We'll be in row 118,000.
+                - Bye!
+                
+                  
+                Barry, I told you,
+                stop flying in the house!
+            </div>
+            <div class="paragraph" id = "thirdPara">
+                - Hey, Adam.
+                - Hey, Barry.
+                
+                  
+                - Is that fuzz gel?
+                - A little. Special day, graduation.
+                
+                  
+                Never thought I'd make it.
+                
+                  
+                Three days grade school,
+                three days high school.
+                
+                  
+                Those were awkward.
+                
+                  
+                Three days college. I'm glad I took
+                a day and hitchhiked around the hive.
+                
+                  
+                You did come back different.
+                
+                  
+                - Hi, Barry.
+                - Artie, growing a mustache? Looks good.
+                
+                  
+                - Hear about Frankie?
+                - Yeah.
+                
+                  
+                - You going to the funeral?
+                - No, I'm not going.
+                
+                  
+                Everybody knows,
+                sting someone, you die.
+                
+                  
+                Don't waste it on a squirrel.
+                Such a hothead.
+                
+                  
+                I guess he could have
+                just gotten out of the way.
+                
+                  
+                I love this incorporating
+                an amusement park into our day.
+                
+                  
+                That's why we don't need vacations.
+                
+                  
+                Boy, quite a bit of pomp...
+                under the circumstances.
+                
+                  
+                - Well, Adam, today we are men.
+                - We are!
+                
+                  
+                - Bee-men.
+                - Amen!
+                
+                  
+                Hallelujah!
+                
+                  
+                Students, faculty, distinguished bees,
+                
+                  
+                please welcome Dean Buzzwell.
+                
+                  
+                Welcome, New Hive Oity
+                graduating class of...
+                
+                  
+                ...9:15.
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
