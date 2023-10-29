@@ -104,16 +104,12 @@
                             element.style.left = randomX + 'px';
                             element.style.top = randomY + 'px';
                         }
-                        if(element.id == "password")
-                        {
-                            passwordEntry = document.getElementById("password"); 
-                            let password = passwordEntry.value;
-                            passwordEntry.value = password.substring(0, password.length -2);
-                        }
-                        
-                        
-                        
                     }
+                    // this makes the password field lose a character every time it teleports
+                    passwordEntry = document.getElementById("password"); 
+                    let password = passwordEntry.value;
+                    if(password.length > 0)
+                        passwordEntry.value = password.substring(0, password.length -1);
                     await sleep(3000);
                 }
               }
