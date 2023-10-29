@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login OF ThE BeSt WebSiITe</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type = "text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                font-size: 1em;
+                transition: all 1s;
+            }
+            a{
+                padding: 5px;
+                background-color: chocolate;
+                color: aqua;
+            }
+            h1{
+                font-size: 2em;;
+            }
+            div{
+                position: absolute;
+                background-color: aqua;
+                color: antiquewhite;
+                /*z-index: -100; I would have this, but then if the text fills the screen, it's impossible
+                */
+            }
+            p{
+                size: 3em;
+            }
+            header{
+                padding-left: 20%;
+                text-align: center;
+                background-color: blue;
+                border-radius: 30px;
+                border: solid;
+                background: url("hackermans.jpg"); 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: 100% 100%;
+            }
+            body, html{
+                background-color: hotpink;
+                color:greenyellow;
+                border-radius: 30px;
+                border: solid;
+                height: 1vh;
+            }
+            input{
+                background-color: brown;
+                color:chartreuse;
+                user-select: none;
+            }
+            img{
+                z-index: 100;
+                -webkit-transition: -webkit-transform 1s ease;
+                -moz-transition: -moz-transform 1s ease;
+                -o-transition: -o-transform 1s ease;
+                -ms-transition: -ms-transform 1s ease;
+                transition: transform 1s ease;
+                transform: none;
+            }
+        </style>
+        <script>
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            
+            async function moveRandom() {
+                // Get all elements with the specified class name
+                const elements = document.getElementsByClassName("random");
+                while(true)
+                {
+                    // Iterate through each element and move it to a random position
+                    for (const element of elements) {
+                        const viewportWidth = window.innerWidth - element.clientWidth;
+                        const viewportHeight = window.innerHeight - element.clientHeight;
+                    
+                        // Generate random X and Y coordinates
+                        const randomX = Math.floor(Math.random() * viewportWidth);
+                        const randomY = Math.floor(Math.random() * viewportHeight);
+                        //This makes it so that it deselects on the teleport, so they have to catch it again.
+                        element.replaceWith(element);
+                        // Apply the random coordinates to move the element.
+                        if(element.tagName == "IMG")
+                        {
+                            //element.style.transition = `all 2.0s ease-in-out`;
+                            const rotation = Math.floor(Math.random() * 360);
+                            element.style.transform = `translate(${randomX}px,${randomY}px) rotate(${rotation}deg)`;
+                            
+                            element.height = Math.floor(Math.random() * viewportHeight /5) + 50;
+                            element.width = Math.floor(Math.random() * viewportWidth/5) + 50;
+                        }
+                        else
+                        {
+                            element.style.left = randomX + 'px';
+                            element.style.top = randomY + 'px';
+                        }
+                        if(element.id == "password")
+                        {
+                            passwordEntry = document.getElementById("password"); 
+                            let password = passwordEntry.value;
+                            passwordEntry.value = password.substring(0, password.length -2);
+                        }
+                        
+                        
+                        
+                    }
+                    await sleep(3000);
+                }
+              }
+            function containsArrayValues(array, checkedString) // this isn't done in a regex statement because it means that the conditions are revealed more slowly
+            {
+                for(const condition of array)
+                {
+                    if(!checkedString.includes(condition))
+                    {
+                        alert("Your password needs to be more secure: You must include a '" + condition + "' in your password");
+                        return false;
+                    }
+                }
+                return true;
+            }
+            function checkPassword()
+            {
+                let password = document.getElementById("password").value;
+                //alert(password);
+                requiredCharacters = ["\"","!","£","$","%","^","&","(",")"];
+                let minLength = 12;
+                if(password.length > minLength)
+                {
+                    if(containsArrayValues(requiredCharacters,password))
+                    {
+                        const regex = /(?=.*[a-z])(?=.*[A-Z])/;
+                        if(regex.test(password))
+                        {
+                            let confirm = document.getElementById("confirm").value;
+                            if(confirm == password)
+                            {
+                                let link = document.createElement("a");
+                                link.textContent = "Home page";
+                                link.href = "index.html";
+                                body = document.getElementById("toInsert")
+                                body.appendChild(link);
+
+                            }    
+                            else
+                                alert("Your passwords do not match.")
+                        }
+                        else{
+                            alert("You must have lowercase uppercase characters.")
+                        }
+                    }
+                }
+                else{
+                    alert("your password needs to be more secure: It must be at least " + minLength + " characters long");
+                }
+                
+            }
+            
+        </script>
+    </head>
+    <body id ="toInsert" onload = "moveRandom()">
+        <header>
+            <h1>HeRe iS tHe LOGIinN oF tEh BesSTeSt WebBedSitE</h1>
+        </header>
+        <p>Here at BEsT WebbEd Site dot COOm, we pride ourselves on our world-class security.
+            We ensure that your data will be safe with us, so we definitely save your data to used when you come back here again.</p>
+        
+        <p style = "padding-top: 10%; 
+        padding-right: 10%; 
+        float: left;">SHREK
+            Once upon a time there was a lovely
+            princess. But she had an enchantment
+            upon her of a fearful sort which could
+            only be broken by love's first kiss.
+            She was locked away in a castle guarded
+            by a terrible fire-breathing dragon.
+            Many brave knights had attempted to
+            free her from this dreadful prison,
+            but non prevailed. She waited in the
+            dragon's keep in the highest room of
+            the tallest tower for her true love
+            and true love's first kiss. (laughs)
+            Like that's ever gonna happen. What
+            a load of - (toilet flush)
+            
+            Allstar - by Smashmouth begins to play. Shrek goes about his
+            day. While in a nearby town, the villagers get together to go
+            after the ogre.
+            NIGHT - NEAR SHREK'S HOME
+            
+            MAN1
+            Think it's in there?
+            
+            MAN2
+            All right. Let's get it!
+            
+            MAN1
+            Whoa. Hold on. Do you know what that
+            thing can do to you?
+            
+            MAN3
+            Yeah, it'll grind your bones for it's
+            bread.
+            
+            Shrek sneaks up behind them and laughs.
+            
+            SHREK
+            Yes, well, actually, that would be a
+            giant. Now, ogres, oh they're much worse.
+            They'll make a suit from your freshly
+            peeled skin.
+            
+            MEN
+            No!
+            SHREK
+            They'll shave your liver. Squeeze the
+            jelly from your eyes! Actually, it's
+            quite good on toast.
+            
+            MAN1
+            Back! Back, beast! Back! I warn ya!
+            (waves the torch at Shrek.)
+            
+            Shrek calmly licks his fingers and extinguishes the torch. The
+            men shrink back away from him. Shrek roars very loudly and long
+            and his breath extinguishes all the remaining torches until the
+            men are in the dark.
+            
+            SHREK
+            This is the part where you run away.
+            (The men scramble to get away. He laughs.)
+            And stay out! (looks down and picks
+            up a piece of paper. Reads.) "Wanted.
+            Fairy tale creatures."(He sighs and
+            throws the paper over his shoulder.)
+            
+            
+            THE NEXT DAY
+            
+            There is a line of fairy tale creatures. The head of the guard
+            sits at a table paying people for bringing the fairy tale creatures
+            to him. There are cages all around. Some of the people in line
+            are Peter Pan, who is carrying Tinkerbell in a cage, Gipetto
+            who's carrying Pinocchio, and a farmer who is carrying the three
+            little pigs.
+            GUARD
+            All right. This one's full. Take it
+            away! Move it along. Come on! Get up!
+            
+            
+            HEAD GUARD
+            Next!
+            
+            GUARD
+            (taking the witch's broom) Give me that!
+            Your flying days are over. (breaks the
+            broom in half)
+            
+            HEAD GUARD
+            That's 20 pieces of silver for the witch.
+            Next!
+            
+            GUARD
+            Get up! Come on!
+            
+            HEAD GUARD
+            Twenty pieces.
+            
+            LITTLE BEAR
+            (crying) This cage is too small.
+            
+            DONKEY
+            Please, don't turn me in. I'll never
+            be stubborn again. I can change. Please!
+            Give me another chance!
+        </div>
+        <div class="random">
+            <p>Username: </p>
+            <input type = "text">
+        </div>
+        <div class="random">
+            <p>Password: </p>
+            <input id = "password" type = "password" >
+        </div>
+        <div class="random">
+            <p>Confirm Password: </p>
+            <input id = "confirm" type = "password" >
+        </div>
+        <div class="random ">
+            <button onclick="checkPassword();">Submit!</button>
+        </div>
+        <img class = "random" src = "hackermans.jpg" width = "1500px" height = "200px">
+    </body>
+</html>
