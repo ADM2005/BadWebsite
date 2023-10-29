@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            function makeItLong()
+            {
+                let thing = document.getElementById("title");
+                for(let i =0;i <1000; i++)
+                {
+                    let line = document.createElement('br');
+                    
+                    thing.appendChild(line);
+                }
+                let text = document.createElement('p')
+                text.textContent = "Hello, fancy seeing you here traveller";
+                thing.append(text);
+            }
+            
+            
+        </script>
+    </head>
+    <body onload = "makeItLong();">
+        <h1 id = "title">Error 404: Page Not Found</h1>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        
+    </body>
+</html>
